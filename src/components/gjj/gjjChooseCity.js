@@ -54,7 +54,7 @@ class GjjChooseCity extends React.Component {
                     </Select>
                     </Col>
                     <Col lg={5} md={24} sm={24} xs={24} style={{ marginBottom: 0 }}>
-                        <Button type="primary" icon="search">获取城市配置</Button>
+                        <Button type="primary" icon="search" onClick={() => { dispatch({type: 'count/add'}); }}>获取城市配置</Button>
                     </Col>  
             </Row>
         )
