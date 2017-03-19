@@ -65,10 +65,11 @@ export default function ({history, app}) {
             }, 'ui-dropOption')
           }
         },{
-          path: 'Gjj/gjjquery',
-          name: 'Gjj/gjjquery',
+          path: 'Gjj/gjjQuery',
+          name: 'Gjj/gjjQuery',
           getComponent (nextState, cb) {
             require.ensure([], require => {
+               registerModel(app, require('./models/gjj'))
               cb(null, require('./routes/gjj/gjjQuery'))
             }, 'gjj-gjjQuery')
           }

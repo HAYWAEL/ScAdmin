@@ -7,6 +7,7 @@ export default function request (url, options) {
       format: 'json'
     })
   } else {
+    console.log(url)
     return Ajax.ajax({
       url: url,
       method: options.method || 'get',

@@ -9,26 +9,26 @@ module.exports = [
     name: '用户管理',
     icon: 'user'
   },
-  // {
-  //   key: 'ui',
-  //   name: 'UI组件',
-  //   icon: 'camera-o',
-  //   clickable: false,
-  //   child: [
-  //     {
-  //       key: 'ico',
-  //       name: 'Ico 图标'
-  //     },
-  //     {
-  //       key: 'search',
-  //       name: 'Search 搜索'
-  //     },
-  //     {
-  //       key: 'dropOption',
-  //       name: 'DropOption 下拉操作'
-  //     }
-  //   ]
-  // },
+  {
+    key: 'ui',
+    name: 'UI组件',
+    icon: 'camera-o',
+    clickable: false,
+    child: [
+      {
+        key: 'ico',
+        name: 'Ico 图标'
+      },
+      {
+        key: 'search',
+        name: 'Search 搜索'
+      },
+      {
+        key: 'dropOption',
+        name: 'DropOption 下拉操作'
+      }
+    ]
+  },
   {
     key: 'Gjj',
     name: '公积金',

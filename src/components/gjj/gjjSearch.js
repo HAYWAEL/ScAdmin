@@ -7,22 +7,28 @@ function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class GjjSearch extends React.Component {
+function gjjSearch({ loading, location, dataSource, onSearch }) {
 
-  state = {
+  let tabPane = [];
+  if (dataSource.queryStepParam) {
 
-  }
-  render() {
-    function callback(key) {
-      console.log(key);
+    for (let i = 0; i < dataSource.queryStepParam.length; i++) {
+      let inputList = []
+      console.log(dataSource.queryStepParam[i].loginParam.length)
+      for (let j = 0; j < dataSource.queryStepParam[i].loginParam.length; j++) {
+        inputList.push(<Input size="large" placeholder={dataSource.queryStepParam[i].loginParam[j].name} key ={dataSource.queryStepParam[i].loginParam[j].name}/>)
+      }
+      inputList.push(<Button key={i}>查询</Button>)
+      console.log(inputList)
+      tabPane.push(<TabPane tab="查询方式" key={i} >{inputList}</TabPane>)
     }
-    return (
-      <Tabs defaultActiveKey="1" onChange={callback}>
-        <TabPane tab="登陸方式1" key="1"><Input /></TabPane>
-        <TabPane tab="登陸方式 2" key="2">Content of Tab Pane 2</TabPane>
-        <TabPane tab="登陸方式 3" key="3">Content of Tab Pane 3</TabPane>
-      </Tabs>
-    );
   }
+
+  return (
+    <Tabs defaultActiveKey="1" onChange={console.log()}>
+      {tabPane}
+    </Tabs>
+  );
 }
-export default GjjSearch
+
+export default gjjSearch

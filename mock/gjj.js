@@ -36,9 +36,14 @@ let dataKey = mockStorge('GjjCityInfo', Mock.mock({
 let GjjCityInfoData = global[dataKey]
 
 module.exports = {
-    'POST /api/users'(req, res) {
-      let newData = GjjCityInfoData.data[req.body.value]
+    'POST /api/gjjCityInfo'(req, res) {
+        console.log(req.body.id)
+      let newData = GjjCityInfoData.data[req.body.id]
       res.json(newData)
-    }
+    },
+    'GET /api/gjjCityList' (req, res) {
+    const cityList={value:1,name:"杭州"}
+    res.json({success: true, cityList})
+  },
 
 }

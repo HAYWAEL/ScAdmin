@@ -2,9 +2,15 @@ import { request } from '../utils'
 
 
 
-export async function query (params) {
-  return request('/api/GjjCityInfo', {
+export async function getCityInfo (params) {
+  return request('/api/gjjCityInfo', {
     method: 'post',
+    data: params
+  })
+}
+export async function getCityList (params) {
+  return request('/api/gjjCityList', {
+    method: 'get',
     data: params
   })
 }
