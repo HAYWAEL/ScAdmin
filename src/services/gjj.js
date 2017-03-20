@@ -14,3 +14,10 @@ export async function getCityList (params) {
     data: params
   })
 }
+export async function getGjjResult (params) {
+  console.log(params)
+  return request('/api/getGjjResult', {
+    method: 'post',
+    data: params
+  })
+}

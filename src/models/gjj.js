@@ -1,4 +1,4 @@
-import {getCityList,getCityInfo} from '../services/gjj'
+import {getCityList,getCityInfo,getGjjResult} from '../services/gjj'
 import { parse } from 'qs'
 export default {
   namespace: 'gjj',
@@ -6,6 +6,7 @@ export default {
     cityList: [],
     cityInfo: {},
     hasChoose: false,
+    result:"",
   },
   subscriptions: {
     setup ({ dispatch, history }) {
@@ -44,6 +45,18 @@ export default {
         })
       }
     },
+ *getGjjResult ({ payload }, { call, put }) {
+      const data = yield call(getGjjResult, payload)
+      if (data) {
+        yield put({
+          type: 'resultChange',
+          payload: {
+            result: data
+          }
+        })
+      }
+    },
+
    },
    reducers: {
     queryCityListSuccess (state, action) {
@@ -54,6 +67,10 @@ export default {
       const {cityInfo} = action.payload
       return { ...state, cityInfo}
     },
+    resultChange(state,action){
+      const{result}=action
+      return { ...state, result}
+    }
   }
 
 }
