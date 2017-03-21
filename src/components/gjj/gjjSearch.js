@@ -10,7 +10,6 @@ function hasErrors(fieldsError) {
 
 function gjjSearch({ loading, location, dataSource, onSearch }) {
 const handleOnClick=function(e){
-  console.log(e)
   onSearch({"phone":"15655207798"})
 }
   let tabPane = [];
@@ -43,7 +42,7 @@ const handleOnClick=function(e){
         } else {
           inputList.push(
             <Row type="flex" align="middle">
-              <Col xs={{ span: 11, offset: 1 }} lg={{ span: 18, offset: 0 }}>
+              <Col xs={{ span: 11, offset: 1 }} lg={{ span: 20, offset: 0 }}>
                 <Input
                   size="large"
                   className="ant-input"
@@ -61,14 +60,14 @@ const handleOnClick=function(e){
         <Row>
           <Col xs={{ span: 11, offset: 1 }} lg={{ span: 18, offset: 1}}>
             <Button
-              key={i}
+              key={'button'+i}
               style={{ marginTop: 16 }}
               onClick={handleOnClick}
               type="primary">查询</Button >
               </Col>
         </Row>
       )
-      tabPane.push(<TabPane tab={"第"+i+"种查询方式"} key={i} >{inputList}</TabPane>)
+      tabPane.push(<TabPane tab={"第"+i+"种查询方式"} key={"pane"+i} >{inputList}</TabPane>)
     }
   }
 

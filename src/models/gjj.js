@@ -47,12 +47,11 @@ export default {
     },
  *getGjjResult ({ payload }, { call, put }) {
       const data = yield call(getGjjResult, payload)
+      console.log(data)
       if (data) {
         yield put({
           type: 'resultChange',
-          payload: {
-            result: data
-          }
+          result:data
         })
       }
     },
