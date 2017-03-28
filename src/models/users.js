@@ -25,7 +25,6 @@ export default {
       history.listen(location => {
         if (location.pathname === '/users') {
           console.log(location)
-           console.log("hellolo")
           dispatch({
             type: 'query',
             payload: location.query

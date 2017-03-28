@@ -1,5 +1,5 @@
 import React from 'react'
-import {Router} from 'dva/router'
+import { Router } from 'dva/router'
 import App from './routes/app'
 
 const cached = {}
@@ -10,22 +10,22 @@ const registerModel = (app, model) => {
   }
 }
 
-export default function ({history, app}) {
+export default function ({ history, app }) {
   const routes = [
     {
       path: '/',
       component: App,
-      getIndexRoute (nextState, cb) {
+      getIndexRoute(nextState, cb) {
         require.ensure([], require => {
           registerModel(app, require('./models/dashboard'))
-          cb(null, {component: require('./routes/dashboard')})
+          cb(null, { component: require('./routes/dashboard') })
         }, 'dashboard')
       },
       childRoutes: [
         {
           path: 'dashboard',
           name: 'dashboard',
-          getComponent (nextState, cb) {
+          getComponent(nextState, cb) {
             require.ensure([], require => {
               registerModel(app, require('./models/dashboard'))
               cb(null, require('./routes/dashboard'))
@@ -34,7 +34,7 @@ export default function ({history, app}) {
         }, {
           path: 'users',
           name: 'users',
-          getComponent (nextState, cb) {
+          getComponent(nextState, cb) {
             require.ensure([], require => {
               registerModel(app, require('./models/users'))
               cb(null, require('./routes/users'))
@@ -43,7 +43,7 @@ export default function ({history, app}) {
         }, {
           path: 'ui/ico',
           name: 'ui/ico',
-          getComponent (nextState, cb) {
+          getComponent(nextState, cb) {
             require.ensure([], require => {
               cb(null, require('./routes/ui/ico'))
             }, 'ui-ico')
@@ -51,7 +51,7 @@ export default function ({history, app}) {
         }, {
           path: 'ui/search',
           name: 'ui/search',
-          getComponent (nextState, cb) {
+          getComponent(nextState, cb) {
             require.ensure([], require => {
               cb(null, require('./routes/ui/search'))
             }, 'ui-search')
@@ -59,24 +59,33 @@ export default function ({history, app}) {
         }, {
           path: 'ui/dropOption',
           name: 'ui/dropOption',
-          getComponent (nextState, cb) {
+          getComponent(nextState, cb) {
             require.ensure([], require => {
               cb(null, require('./routes/ui/dropOption'))
             }, 'ui-dropOption')
           }
-        },{
+        }, {
           path: 'Gjj/gjjQuery',
           name: 'Gjj/gjjQuery',
-          getComponent (nextState, cb) {
+          getComponent(nextState, cb) {
             require.ensure([], require => {
-               registerModel(app, require('./models/gjj'))
+              registerModel(app, require('./models/gjj'))
               cb(null, require('./routes/gjj/gjjQuery'))
             }, 'gjj-gjjQuery')
           }
         }, {
+          path: 'mobile/mobileSetting',
+          name: 'mobile/mobileSetting',
+          getComponent(nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/mobile'))
+              cb(null, require('./routes/mobile/mobileSetting'))
+            }, 'mobile-mobileSetting')
+          }
+        }, {
           path: '*',
           name: 'error',
-          getComponent (nextState, cb) {
+          getComponent(nextState, cb) {
             require.ensure([], require => {
               cb(null, require('./routes/error'))
             }, 'error')

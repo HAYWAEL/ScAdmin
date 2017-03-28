@@ -1,5 +1,5 @@
 const Mock = require('mockjs')
-const mockData = [require('../../mock/users'), require('../../mock/app'), require('../../mock/dashboard'),require('../../mock/gjj')]
+const mockData = [require('../../mock/users'), require('../../mock/app'), require('../../mock/dashboard'),require('../../mock/gjj'),require('../../mock/mobile')]
 
 function serialize (str) {
   let paramArray = str.split('&')
