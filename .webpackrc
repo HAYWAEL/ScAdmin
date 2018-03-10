@@ -1,0 +1,14 @@
+{
+    "proxy": {
+        "/api": {
+            "target": "http://tt.51gjj.com",
+            "changeOrigin": true,
+            "pathRewrite": {
+                "^/api": ""
+            }
+        }
+    },
+    "theme": {
+    "primary-color": "#b4a078"
+  }
+}
